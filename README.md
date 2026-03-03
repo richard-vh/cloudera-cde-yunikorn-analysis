@@ -1,6 +1,6 @@
 # ![](/images/title.png)
 
-Occasionally it might be useful to analyze your CDE Kubernetes Service to observe how many K8s nodes are autoscaling and what the resourse utilization rates of the nodes are. This can give you insights into how effeciently your Spark workloads are using the K8s infrastructure, whether your K8s machine type is a good fit or your Spark application executor core and memory settings, whether you need to tune these settings and so on.
+It may be useful to analyze your CDE Kubernetes Service to observe how many K8s nodes are autoscaling and what the resourse utilization rates of the nodes are. This can give you insights into how effeciently your Spark workloads are using the K8s infrastructure, whether your K8s machine type is a good fit or your Spark application executor core and memory settings, whether you need to tune these settings and so on.
 
 It is not recommended to continually run the extract process. Only use it when you want to get a window view of utilization over a specific time frame.
 
