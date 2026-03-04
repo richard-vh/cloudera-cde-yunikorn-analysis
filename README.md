@@ -1,4 +1,4 @@
-# ![](/images/title.png)
+# ![](/images/title3.png)
 
 It may be useful to analyze your CDE Kubernetes Service to observe how many K8s nodes are autoscaling and what the resourse utilization rates of the nodes are. This can give you insights into how effeciently your Spark workloads are using the K8s infrastructure, whether your K8s machine type is a good fit or your Spark application executor core and memory settings, whether you need to tune these settings and so on.
 
