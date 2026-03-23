@@ -3,8 +3,7 @@ import streamlit as st
 import pandas as pd
 import cml.data_v1 as cmldata
 
-
-@st.cache_data(ttl=600)  # Cache data for 10 minutes
+@st.cache_data(ttl=600)
 def load_data(connection_name, schema, table):
     """
     Connects to the data source, executes a query, 
@@ -13,8 +12,8 @@ def load_data(connection_name, schema, table):
     conn = None
     try:
         conn = cmldata.get_connection(connection_name)
-        # MODIFIED: Removed the WHERE clause to load all data
-        sql_query = f"SELECT * FROM {schema}.{table}"
+        # ORDER BY to guarantee the rows always stay in the exact same order
+        sql_query = f"SELECT * FROM {schema}.{table} ORDER BY log_time, node_id"
         df = conn.get_pandas_dataframe(sql_query)
         return df
     except Exception as e:
@@ -41,6 +40,7 @@ def load_allocations_data(connection_name, schema, alloc_table, node_id, log_dat
         if conn:
             conn.close()
 
+@st.cache_data
 def process_data(df):
     """
     Performs initial data processing and feature engineering for the YuniKorn utilization data.
