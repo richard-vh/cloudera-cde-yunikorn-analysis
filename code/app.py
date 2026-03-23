@@ -16,6 +16,14 @@ st.set_page_config(
 # --- Get the inputs from the UI ---
 connection_name, schema_name, table_name, node_type_filter = ui.display_sidebar_inputs()
 
+# --- Refresh Button Logic ---
+if st.sidebar.button("🔄 Refresh Data", type="secondary"):
+    # Clear all cached data (this clears the @st.cache_data cache)
+    st.cache_data.clear()
+    
+    # Rerun the app to fetch new data immediately
+    st.rerun()
+
 # --- Data Loading and Processing ---
 raw_df = data.load_data(connection_name, schema_name, table_name)
 processed_df = data.process_data(raw_df)
